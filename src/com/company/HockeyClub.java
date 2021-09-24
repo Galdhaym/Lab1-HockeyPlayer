@@ -26,11 +26,7 @@ public class HockeyClub {
         for(HockeyPlayer hockeyPlayer: club.hockeyPlayers){
             int age = hockeyPlayer.getAge();
             if(age > 25) {
-                System.out.println("Хокеист №" + (i + 1) + ":");
-                System.out.println("Фамилия: " + hockeyPlayer.getLastName());
-                System.out.println("Возраст: " + hockeyPlayer.getAge());
-                System.out.println("Число игр: " + hockeyPlayer.getGamesNumber());
-                System.out.println("Число пропущенных шайб: " + hockeyPlayer.getNumberOfMissedPucks());
+                System.out.println("Хокеист №" + (i + 1) + ":\n" + hockeyPlayer);
                 i++;
             }
         }

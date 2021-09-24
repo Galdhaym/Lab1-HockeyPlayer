@@ -50,6 +50,15 @@ public class HockeyPlayer {
         }
     }
 
+    @Override
+    public String toString() {
+        return "Хокеист:\n" +
+                "Фамилия: " + lastName + "\n" +
+                "Возраст: " + age + "\n" +
+                "Количество игр: " + gamesNumber + "\n" +
+                "Количество пропущенных шайб: " + numberOfMissedPucks;
+    }
+
     public void setAge(int age) {
         if(age > 0 && age < MAXAGE) {
             this.age = age;
