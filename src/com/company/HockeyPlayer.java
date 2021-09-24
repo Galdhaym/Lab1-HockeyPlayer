@@ -1,6 +1,7 @@
 package com.company;
 
 public class HockeyPlayer {
+    public static final int MAXAGE = 120;
     private String lastName;
     private int age;
     private int gamesNumber;
@@ -50,7 +51,7 @@ public class HockeyPlayer {
     }
 
     public void setAge(int age) {
-        if(age > 0 && age < 120) {
+        if(age > 0 && age < MAXAGE) {
             this.age = age;
         }
         else{
