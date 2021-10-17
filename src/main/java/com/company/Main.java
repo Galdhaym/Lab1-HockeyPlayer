@@ -41,8 +41,8 @@ public class Main {
         HockeyPlayer hockeyPlayer2 = new HockeyPlayer("Koliya", 30, 10, 0);
         boolean value;
         File file = new File("C:\\Users\\Дима\\IdeaProjects\\Lab1-HockeyPlayer\\src\\resources\\text.txt");
+        file.createNewFile();
         try (ObjectSerializer objectSerializer = new ObjectSerializer(file)) {
-            file.createNewFile();
             objectSerializer.save(hockeyPlayer1);
             value = createBackUpCopyOfFile(file);
             objectSerializer.save(hockeyPlayer2);
@@ -60,5 +60,5 @@ public class Main {
             System.out.println("После бекапа: ");
             System.out.println(hockeyPlayer1After);
         }
-}
+    }
 }
