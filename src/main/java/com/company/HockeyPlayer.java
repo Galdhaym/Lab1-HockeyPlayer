@@ -1,11 +1,20 @@
 package com.company;
 
-public class HockeyPlayer {
-    public static final int MAXAGE = 120;
+import java.io.Serializable;
+
+public class HockeyPlayer implements Serializable {
+    public static final int MAX_AGE = 120;
     private String lastName;
     private int age;
     private int gamesNumber;
     private int numberOfMissedPucks;
+
+    public HockeyPlayer(String lastName, int age, int gamesNumber, int numberOfMissedPucks) {
+        this.lastName = lastName;
+        this.age = age;
+        this.gamesNumber = gamesNumber;
+        this.numberOfMissedPucks = numberOfMissedPucks;
+    }
 
     public int getGamesNumber() {
         return gamesNumber;
@@ -60,7 +69,7 @@ public class HockeyPlayer {
     }
 
     public void setAge(int age) {
-        if(age > 0 && age < MAXAGE) {
+        if(age > 0 && age < MAX_AGE) {
             this.age = age;
         }
         else{
