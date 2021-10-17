@@ -7,14 +7,14 @@ public class ObjectSerializer implements AutoCloseable {
     private ObjectOutputStream outputStream;
     File file;
 
-    ObjectSerializer(File file) throws Exception {
+    ObjectSerializer(File file) throws IOException {
         if(!file.isFile()) {
-            throw new Exception("Current file path must be a file!");
+            throw new IOException("Current file path must be a file!");
         }
         this.file = file;
     }
 
-    public void save(Object object) throws Exception {
+    public void save(Object object) throws IOException {
         if(outputStream == null){
             outputStream = new ObjectOutputStream(new FileOutputStream(file));
         }
@@ -22,7 +22,7 @@ public class ObjectSerializer implements AutoCloseable {
         outputStream.writeObject(object);
     }
 
-    public Object load() throws Exception {
+    public Object load() throws IOException, ClassNotFoundException {
         if(inputStream == null){
             inputStream = new ObjectInputStream(new FileInputStream(file));
         }
@@ -31,7 +31,7 @@ public class ObjectSerializer implements AutoCloseable {
     }
 
     @Override
-    public void close() throws Exception {
+    public void close() throws IOException {
         if(outputStream != null){
             outputStream.close();
             outputStream = null;

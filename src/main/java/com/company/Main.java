@@ -3,6 +3,7 @@ package com.company;
 import com.google.gson.Gson;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.*;
 
 import static java.nio.file.StandardCopyOption.*;
@@ -11,7 +12,7 @@ public class Main {
 
     public static final String BACKUP_PATH = "C:\\Users\\Дима\\IdeaProjects\\Lab1-HockeyPlayer\\src\\resources\\";
 
-    public static boolean createBackUpCopyOfFile(File file) throws Exception {
+    public static boolean createBackUpCopyOfFile(File file) throws IOException {
         Path path = Paths.get(BACKUP_PATH + file.getName().replace(".txt", "") + "_copy.txt");
         if(!Files.exists(path)) {
             return false;
@@ -20,7 +21,7 @@ public class Main {
         return true;
     }
 
-    public static void restoreStateFromBackUp(File file) throws Exception {
+    public static void restoreStateFromBackUp(File file) throws IOException {
         Path path = Paths.get(BACKUP_PATH + file.getName().replace(".txt", "") + "_copy.txt");
         if(!Files.exists(path)) {
             return;
@@ -36,7 +37,7 @@ public class Main {
         System.out.println(resultHockeyPlayer);
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
         HockeyPlayer hockeyPlayer1 = new HockeyPlayer("Dima", 19, 5, 10);
         HockeyPlayer hockeyPlayer2 = new HockeyPlayer("Koliya", 30, 10, 0);
         boolean value;
